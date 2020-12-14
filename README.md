@@ -1,13 +1,23 @@
-# provider-template
+# provider-openstack
 
-`provider-template` is a minimal [Crossplane](https://crossplane.io/) Provider
-that is meant to be used as a template for implementing new Providers. It comes
-with the following features that are meant to be refactored:
+## Overview
 
-- A `ProviderConfig` type that only points to a credentials `Secret`.
-- A `MyType` resource type that serves as an example managed resource.
-- A managed resource controller that reconciles `MyType` objects and simply
-  prints their configuration in its `Observe` method.
+`provider-openstack` is the Crossplane infrastructure provider for the
+[OpenStack](https://openstack.org/). The provider that is built from the source
+code in this repository can be installed into a Crossplane control plane and
+adds the following new functionality:
+
+* Custom Resource Definitions (CRDs) that model OpenStack infrastructure and services
+  (e.g. Instances, etc.)
+* Controllers to provision these resources in OpenStack based on the users
+  desired state captured in CRDs they create
+* Implementations of Crossplane's portable resource abstractions, enabling OpenStack
+  resources to fulfill a user's general need for cloud services
+
+## Getting Started and Documentation
+
+For getting started guides, installation, deployment, and administration, see
+our [Documentation](https://crossplane.io/docs/latest).
 
 ## Developing
 

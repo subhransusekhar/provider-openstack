@@ -25,7 +25,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "sample.template.crossplane.io"
+	Group   = "compute.os.crossplane.io"
 	Version = "v1alpha1"
 )
 
@@ -37,14 +37,14 @@ var (
 	SchemeBuilder = &scheme.Builder{GroupVersion: SchemeGroupVersion}
 )
 
-// MyType type metadata.
+// Instance type metadata.
 var (
-	MyTypeKind             = reflect.TypeOf(MyType{}).Name()
-	MyTypeGroupKind        = schema.GroupKind{Group: Group, Kind: MyTypeKind}.String()
-	MyTypeKindAPIVersion   = MyTypeKind + "." + SchemeGroupVersion.String()
-	MyTypeGroupVersionKind = SchemeGroupVersion.WithKind(MyTypeKind)
+	InstanceKind             = reflect.TypeOf(Instance{}).Name()
+	InstanceGroupKind        = schema.GroupKind{Group: Group, Kind: InstanceKind}.String()
+	InstanceKindAPIVersion   = InstanceKind + "." + SchemeGroupVersion.String()
+	InstanceGroupVersionKind = SchemeGroupVersion.WithKind(InstanceKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&MyType{}, &MyTypeList{})
+	SchemeBuilder.Register(&Instance{}, &InstanceList{})
 }

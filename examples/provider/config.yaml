@@ -2,17 +2,22 @@ apiVersion: v1
 kind: Secret
 metadata:
   namespace: crossplane-system
-  name: example-provider-secret
+  name: provider-os-secret
 type: Opaque
 data:
-  # credentials: BASE64ENCODED_PROVIDER_CREDS
+  token: BASE64ENCODED_PROVIDER_CREDS
 ---
-apiVersion: template.crossplane.io/v1alpha1
+apiVersion: os.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
   name: example
 spec:
-  credentialsSecretRef:
-    namespace: crossplane-system
-    name: example-provider-secret
-    key: credentials
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: provider-os-secret
+      key: token
+  identityEndpoint: "https://my-openstack.com:5000/v3.0"
+  projectID: PROJECT_ID
+  userName: admin

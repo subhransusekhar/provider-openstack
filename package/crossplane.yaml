@@ -1,0 +1,12 @@
+apiVersion: meta.pkg.crossplane.io/v1alpha1
+kind: Provider
+metadata:
+  name: provider-openstack
+  annotations:
+    source: github.com/subhransusekhar/provider-openstack
+    license: Apache-2.0
+    descriptionShort: |
+      The OpenStack Crossplane provider enables infrastructure management for OpenStack.
+spec:
+  controller:
+    image: subhransusekhar/provider-openstack-controller:VERSION

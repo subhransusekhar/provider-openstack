@@ -1,0 +1,11 @@
+apiVersion: compute.os.crossplane.io/v1alpha1
+kind: Instance
+metadata:
+  name: example
+spec:
+  forProvider:
+    region: RegionOne
+    flavor: small1
+    image: ubuntu-20-04-x64
+  providerConfigRef:
+    name: example
